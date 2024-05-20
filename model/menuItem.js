@@ -1,3 +1,5 @@
+const mongoose = require("mongoose")
+
 const menuItemSchema = mongoose.Schema({
     name:{
         type:String,
@@ -12,7 +14,7 @@ const menuItemSchema = mongoose.Schema({
         required:true
     },
     category:{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'Category',
         required: true  
     },
