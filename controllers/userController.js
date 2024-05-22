@@ -31,7 +31,7 @@ const register = asyncHandler(async(req,res)=>{
           return res.status(400).json({error:error.array()})
       }
   
-    const {fullName,email,phoneNumber,password,otp} = req.body  
+    const {fullName,email,phoneNumber,password,otp,username} = req.body  
     let user = await User.findOne({
       email:email
     })
@@ -52,6 +52,7 @@ const register = asyncHandler(async(req,res)=>{
         phoneNumber,
         password:await bcrypt.hash(password, 10),
         otp:generatedUserOtp,
+        username
     }
   const newUser = new User(data)
   
@@ -167,4 +168,12 @@ const resetPassword =asyncHandler(async(req,res)=>{
   })
   
   
-module.exports = {getUser,getAllUsers,register,verifyEmail,resendOpt,login,requestPasswordReset,resetPassword}
+  const updateUser=asyncHandler(async(req,res)=>{
+    const user = await User.findById(req.params.id)
+    if(!user){
+      throw new error("User not found")
+    }
+    const updateUser = await User.findByIdAndUpdate(req.params.id,req.body,{new:true})
+    return res.status(200).json(updateUser)
+  })
+module.exports = {getUser,getAllUsers,register,verifyEmail,resendOpt,login,requestPasswordReset,resetPassword,updateUser}

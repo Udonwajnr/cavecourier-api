@@ -18,6 +18,8 @@ app.listen(port,()=>{
 app.use("/api/user",require("./route/userAuthRoute"))
 app.use("/api/category",require("./route/categoryRoute"))
 app.use("/api/menu",require("./route/menuRoute"))
+app.use("/api/eatery",require("./route/eateryRoute"))
 app.use("/api/address",require("./route/addressRoute"))
+
 
 connectDB()

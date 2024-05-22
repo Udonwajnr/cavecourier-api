@@ -1,8 +1,9 @@
 const asyncHandler = require("express-async-handler")
 const Address = require("../model/address")
 const User = require("../model/user")
+
 const getAllAddresses =asyncHandler(async(req,res)=>{
-    const address = await Address.find().populate("categories")
+    const address = await Address.find().populate('user')
     return res.status(200).json(address)
 })
 
