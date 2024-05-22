@@ -39,4 +39,23 @@ const createAddress = asyncHandler(async (req, res) => {
     res.status(201).json({ message: 'Address added successfully', address: newAddress });
   });
 
-module.exports = {getAllAddresses,getAddress,createAddress}
+  const updateAddress=asyncHandler(async(req,res)=>{
+    const address = await Address.findById(req.params.id)
+    if(!address){
+        throw new error("Address not Found")
+    }
+    const updateAddress = await Address.findByIdAndUpdate(req.params.id,req.body,{new:true})
+    return res.status(200).json(updateAddress)
+  })
+
+
+const deleteAddress = asyncHandler(async(req,res)=>{
+    const address = await Address.findById(req.params.id)
+    if(!address){
+        throw new Error("Address Not found")
+    }
+    await Address.findByIdAndDelete(req.params.id)
+    res.status(200).json({msg:`${req.params.id} has been deleted`})
+})
+
+module.exports = {getAllAddresses,getAddress,createAddress,deleteAddress}
