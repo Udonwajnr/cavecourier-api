@@ -1,0 +1,36 @@
+{"name":"",
+  "location":{},
+  "address":"",
+  "contact":{},
+  "cuisine":"",  
+  "rating":3,
+   "menu":[],
+   "category":[],
+   "image":""
+}
+
+
+menu
+
+{
+  "name":"afang",
+  "description":"This is a nigerian dish",
+  "image":"this is an image",
+  "category":"664b9569a923423462a15e57",
+  "price":300
+}
+
+
+{
+  "name":"rest",
+  "location":{"type":"Point","coordinates":4},
+  "address":"dmdmd",
+  "contact":{"phone":"23456788","email":"test@gmail.com"},
+  "cuisine":"Nigeria",  
+  "rating":3,
+   "menu":[],
+   "category":[],
+   "image":"www"
+}
+
+

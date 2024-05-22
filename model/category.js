@@ -13,6 +13,11 @@ const categorySchema = mongoose.Schema({
     type:String,
     required:false
   },
+  eatery:{
+    type: mongoose.Types.ObjectId,
+    ref: 'Eatery',
+    required: true  
+  },
   createdAt: {
     type: Date,
     default: Date.now

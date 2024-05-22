@@ -39,6 +39,10 @@ const userSchema =mongoose.Schema({
         enum: ['Customer', 'Admin'],
         default: 'Customer'
     },
+    addresses:[{
+        type: mongoose.Types.ObjectId,
+        ref: 'Address'
+    }],
     createdAt: {
         type: Date,
         default: Date.now

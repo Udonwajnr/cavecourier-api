@@ -2,7 +2,7 @@ const mongoose = require("mongoose")
 const eaterySchema = mongoose.Schema({
     name: {
       type: String,
-      required: true
+      required: true,
     },
     location: {
       type: {
@@ -69,9 +69,13 @@ const eaterySchema = mongoose.Schema({
       default: 0
     },
     menu: [{
-        type: Schema.Types.ObjectId,
+        type: mongoose.Types.ObjectId,
         ref: 'MenuItem'
     }],
+    categories: [{
+      type: mongoose.Types.ObjectId,
+      ref: 'Category'
+  }],
     image: {
       type: String,
       required: false
@@ -87,6 +91,22 @@ const eaterySchema = mongoose.Schema({
   });
   
   eaterySchema.index({ location: '2dsphere' });
-  
   module.exports = mongoose.model('Eatery', eaterySchema);
   
+  // const YourModel =mongoose.model('Eatery', eaterySchema);
+  
+//   const removeFieldFromDocuments = async () => {
+//     try {
+//         const result = await YourModel.updateMany(
+//             {},
+//             { $unset: { fieldName: "category" } }
+//         );
+//         console.log(`${result.nModified} documents were updated`);
+//     } catch (err) {
+//         console.error('Error removing field:', err);
+//     } finally {
+//         mongoose.connection.close();
+//     }
+// };
+
+// removeFieldFromDocuments();

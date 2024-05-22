@@ -1,4 +1,5 @@
-const mongoose = require("mongoose")
+const mongoose = require("mongoose");
+const eatery = require("./eatery");
 
 const menuItemSchema = mongoose.Schema({
     name:{
@@ -12,6 +13,11 @@ const menuItemSchema = mongoose.Schema({
     price:{
         type:Number,
         required:true
+    },
+    eatery:{
+        type: mongoose.Types.ObjectId,
+        ref: 'Eatery',
+        required: true  
     },
     category:{
         type: mongoose.Types.ObjectId,
