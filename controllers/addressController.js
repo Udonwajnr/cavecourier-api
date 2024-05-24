@@ -11,7 +11,7 @@ const getAddress =asyncHandler(async(req,res)=>{
     const address = await Address.findById(req.params.id)
     if(!address){
         return res.status(400).json({msg:"Eatery Does not exist"})
-    }s
+    }
     return res.status(200).json(address)
 })
 
@@ -58,4 +58,4 @@ const deleteAddress = asyncHandler(async(req,res)=>{
     res.status(200).json({msg:`${req.params.id} has been deleted`})
 })
 
-module.exports = {getAllAddresses,getAddress,createAddress,deleteAddress}
+module.exports = {getAllAddresses,getAddress,createAddress,updateAddress,deleteAddress}

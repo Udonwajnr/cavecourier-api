@@ -20,6 +20,8 @@ app.use("/api/category",require("./route/categoryRoute"))
 app.use("/api/menu",require("./route/menuRoute"))
 app.use("/api/eatery",require("./route/eateryRoute"))
 app.use("/api/address",require("./route/addressRoute"))
+app.use("/api/dispatchRider",require("./route/dispatchRoute"))
+app.use("/api/orders",require("./route/ordersRoute"))
 
 
 connectDB()
